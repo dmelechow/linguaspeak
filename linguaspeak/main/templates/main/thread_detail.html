@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+{% block content %}
+<article class="media content-section">
+  <img class="rounded-circle article-img" src="{{ thread.author.profile.image.url }}">
+  <div class="media-body">
+    <div class="article-metadata">
+      <h3>{{ object.language.title }}</h3>
+    </div>
+    <h2>{{ object.title }}</h2>
+    <p class="article-content">{{ object.lingualevel }}</p>
+    <p class="article-content">{{ object.date_posted|date:"F d, Y" }}</p>
+  </div>
+</article>
+{% endblock content%}
