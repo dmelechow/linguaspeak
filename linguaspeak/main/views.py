@@ -5,7 +5,8 @@ from django.views.generic import (
                 ListView,
                 DetailView,
                 CreateView,
-                UpdateView
+                UpdateView,
+                DeleteView
 )
 
 def main(request) :
@@ -14,14 +15,17 @@ def main(request) :
     }
     return render(request, 'main/home.html', content)
 
+
 class ThreadListView(ListView):
     model = Thread
     template_name = 'main/home.html'
     context_object_name = 'threads'
     ordering = ['-date_posted'] # сортировка threads
 
+
 class ThreadDetailView(DetailView):
     model = Thread
+
 
 class ThreadUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         model = Thread
@@ -32,10 +36,11 @@ class ThreadUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return super().form_valid(form)
 
         def test_func(self):
-            post = self.get_object()
-            if self.request.user == post.author:
+            thread = self.get_object()
+            if self.request.user == thread.author:
                 return True
             return False
+
 
 class ThreadCreateView(LoginRequiredMixin, CreateView):
     model = Thread
@@ -46,6 +51,13 @@ class ThreadCreateView(LoginRequiredMixin, CreateView):
         return super(ThreadCreateView, self).form_valid(form)
 
 
-    # def from_valid(self, from):
-    #     from.instance.author = self.request.user
-    #     return super
+
+class ThreadDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+        model = Thread
+        success_url = '/'
+
+        def test_func(self):
+            thread = self.get_object()
+            if self.request.user == thread.author:
+                return True
+            return False
