@@ -51,7 +51,6 @@ class ThreadCreateView(LoginRequiredMixin, CreateView):
         return super(ThreadCreateView, self).form_valid(form)
 
 
-
 class ThreadDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         model = Thread
         success_url = '/'

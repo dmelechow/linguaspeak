@@ -12,12 +12,17 @@ ul {
   margin: 0;
 }
 
-.bg-steel {
-  background-color: #5f788a;
+.navbar-brand img {
+  width: 30px;
+  height: 30px;
+}
+
+.bg-main {
+  background-color: #6BB9F0;
 }
 
 .site-header .navbar-nav .nav-link {
-  color: #cbd5db;
+  color: #000000;
 }
 
 .site-header .navbar-nav .nav-link:hover {
