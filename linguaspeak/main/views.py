@@ -47,7 +47,7 @@ class ThreadCreateView(LoginRequiredMixin, CreateView):
     fields = ['title', 'language', 'max_people', 'lingualevel']
 
     def form_valid(self, form):
-        form.instance.author = self.model.user
+        form.instance.author = self.request.user
         return super(ThreadCreateView, self).form_valid(form)
 
 

@@ -2,7 +2,7 @@
 {% block content %}
 {% for thread in threads %}
 <article class="media content-section">
-  <img class="rounded-circle article-img" src="{{ thread.author.profile.image.url }}">
+  <!-- <img class="rounded-circle article-img" src="{{ thread.author.profile.image.url }}"> -->
   <div class="media-body">
     <div class="article-metadata">
       <h3>{{ thread.language.title }}</h3>
@@ -10,6 +10,9 @@
     <h2><a class="article-title" href="{% url 'thread-detail' thread.id %}">{{ thread.title }}</a></h2>
     <p class="article-content">{{ thread.lingualevel }}</p>
     <p class="article-content">{{ thread.author.username }}</p>
+    <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Join</a>
+
+
   </div>
 </article>
 {% endfor %}

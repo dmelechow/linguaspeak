@@ -12,14 +12,20 @@ ul {
   margin: 0;
 }
 
+.navbar {
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+}
+
 .navbar-brand img {
   width: 30px;
   height: 30px;
 }
 
 .bg-main {
-  background-color: #6BB9F0;
+  background-color: #ffffff;
 }
+
+/* 6BB9F0 */
 
 .site-header .navbar-nav .nav-link {
   color: #000000;
