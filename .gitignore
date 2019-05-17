@@ -3,3 +3,6 @@
 
 # IDEs files
 .idea/
+
+# Python byte code
+*.pyc
