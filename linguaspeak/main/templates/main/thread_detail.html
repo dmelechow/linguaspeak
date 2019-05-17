@@ -2,12 +2,16 @@
 {% block content %}
 <article class="media content-section">
   <img class="rounded-circle article-img" src="{{ thread.author.profile.image.url }}">
-  <div class="media-body">
-    <div class="article-metadata">
-      <h3>{{ object.language.title }}</h3>
-    </div>
-    <h2>{{ object.title }}</h2>
-    <p class="article-content">{{ object.lingualevel }}</p>
+
+  <div class="media-body container">
+      <div class="article-metadata">
+        <div class="row container mt-2">
+          <h5 style="font-weight:bolder;">{{ object.language.title }}</h5>
+          <h5 id='text-gray' class="ml-2">{{ object.lingualevel }}</h5>
+        </div>
+      </div>
+
+    <h6>'{{ object.title }}'</h6>
     <p class="article-content">{{ object.date_posted|date:"F d, Y" }}</p>
       {% if object.author == user %}
         <div >

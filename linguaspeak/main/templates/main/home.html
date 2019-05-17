@@ -4,13 +4,31 @@
 <article class="media content-section">
   <!-- <img class="rounded-circle article-img" src="{{ thread.author.profile.image.url }}"> -->
   <div class="media-body">
+
     <div class="article-metadata">
-      <h5>{{ thread.language.title }}</h5>
+      <div class="row container mt-2">
+        <h5 style="font-weight:bolder;">{{ thread.language.title }}</h5>
+        <h5 id='text-gray' class="ml-2">{{ thread.lingualevel }}</h5>
+      </div>
     </div>
-    <h2><a class="article-title" href="{% url 'thread-detail' thread.id %}">{{ thread.title }}</a></h2>
-    <p class="article-content">{{ thread.lingualevel }}</p>
-    <p class="article-content">{{ thread.author.username }}</p>
-    <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Join</a>
+
+    <h6><a class="article-title" href="{% url 'thread-detail' thread.id %}">'{{ thread.title }}'</a></h6>
+
+    <div class="row">
+      <div class="item-avatar mt-2  ml-3">
+        <img class="img-avatar rounded-circle article-img" src="{{ thread.author.profile.image.url }}" width="90px" height="90px">
+        <p class="article-content mt-1" align="center"><a style="color:black" href="#">{{ thread.author.username }}</a></p>
+      </div>
+
+      <!-- <div class="item-avatar mt-3 mb-2 mr-2">
+        <img id='img-avatar' class="rounded-circle article-img" src="{{ thread.author.profile.image.url }}" width="90px" height="90px">
+        <p class="article-content mt-2" align="center"><a style="color:black" href="#">{{ thread.author.username }}</a></p>
+      </div> -->
+    </div>
+
+    <a class="active-btn btn-primary" href="#">Join to thread</a>
+
+    <!-- <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true style="background:red">Join</a> -->
   </div>
 </article>
 {% endfor %}
